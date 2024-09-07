@@ -1,0 +1,10 @@
+services:
+  app:
+    volumes:
+      - .:/app
+    ports:
+      - "9000:9000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    command: python app.py

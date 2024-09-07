@@ -1,0 +1,6 @@
+services:
+  app:
+    environment:
+      - AWS_LAMBDA_FUNCTION_HANDLER=app.lambda_handler
+    ports:
+      - "9000:8080"
