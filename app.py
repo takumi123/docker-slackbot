@@ -3,12 +3,15 @@ from flask import Flask, jsonify, make_response, render_template_string
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from langchain_openai import ChatOpenAI
+
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 app.config['JSONIFY_MIMETYPE'] = 'application/json;charset=utf-8'
 
-llm = OpenAI(temperature=0.7)
+llm = ChatOpenAI()
+llm.invoke("こんにちは！元気？")
 
 prompt = PromptTemplate(
     input_variables=["product"],
@@ -16,6 +19,7 @@ prompt = PromptTemplate(
 )
 
 chain = LLMChain(llm=llm, prompt=prompt)
+
 
 # HTMLテンプレートを文字列として定義
 html_template = """

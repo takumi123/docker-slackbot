@@ -15,3 +15,10 @@ docker tag docker-test:latest $(aws sts get-caller-identity --query Account --ou
 
 # 6. ECRにイメージをプッシュ
 docker push $(aws sts get-caller-identity --query Account --output text).dkr.ecr.ap-northeast-1.amazonaws.com/docker-test:latest
+
+--
+コピペ用
+
+DOCKER_DEFAULT_PLATFORM=linux/amd64 docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+docker tag docker-test:latest $(aws sts get-caller-identity --query Account --output text).dkr.ecr.ap-northeast-1.amazonaws.com/docker-test:latest
+docker push $(aws sts get-caller-identity --query Account --output text).dkr.ecr.ap-northeast-1.amazonaws.com/docker-test:latest
