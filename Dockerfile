@@ -10,3 +10,5 @@ COPY app.py ${LAMBDA_TASK_ROOT}
 
 # Lambda 関数のハンドラを指定
 CMD [ "app.lambda_handler" ]
+
+ENV NODE_ENV=production
